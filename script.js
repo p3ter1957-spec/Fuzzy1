@@ -3,6 +3,19 @@
    script.js
    ============================================= */
 
+// ── Seeded PRNG (mulberry32) ──────────────────────────────────────
+// Returns a deterministic pseudo-random function for a given seed,
+// so the barcode looks the same on every page load.
+function seededRandom(seed) {
+  return function () {
+    seed |= 0;
+    seed = seed + 0x6D2B79F5 | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = t + Math.imul(t ^ (t >>> 7), 61 | t) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
 // ── Barcode Generator ────────────────────────────────────────────
 function generateBarcode() {
   const canvas = document.getElementById('barcodeCanvas');
@@ -18,30 +31,28 @@ function generateBarcode() {
   const quietZone = 18;
   const drawWidth = W - quietZone * 2;
 
-  // Generate a random sequence of bar widths (1–3 units)
-  // following a simplified Code 128-ish visual pattern
+  // Fixed seed tied to the student — change the number to get a
+  // different-looking but still stable barcode.
+  const rand = seededRandom(0xED6A3C1F);
+
   const bars = [];
   let totalUnits = 0;
-  const targetUnits = 110; // approx units to fill
+  const targetUnits = 110;
 
-  // Start quiet zone
-  bars.push({ color: '#fff', units: 0 }); // placeholder
+  bars.push({ color: '#fff', units: 0 });
 
-  // Random bar sequence
   while (totalUnits < targetUnits) {
     const isBar = bars.length % 2 === 0;
-    const weight = Math.random();
+    const weight = rand();
     let w;
     if (weight < 0.55)      w = 1;
     else if (weight < 0.82) w = 2;
     else                    w = 3;
-    // clamp to remaining
     if (totalUnits + w > targetUnits) w = targetUnits - totalUnits;
     bars.push({ color: isBar ? '#000' : '#fff', units: w });
     totalUnits += w;
   }
 
-  // Always end with a thin black terminator bar
   bars.push({ color: '#000', units: 2 });
   totalUnits += 2;
 

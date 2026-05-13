@@ -23,7 +23,7 @@ body {
 /* ========== App Header ========== */
 .app-header {
   width: 100%;
-  background: #5c1f8a;
+  background: #411066;
   color: #fff;
   text-align: center;
   padding: 13px 0 11px;
@@ -59,7 +59,7 @@ body {
 
 /* ========== University Header ========== */
 .uni-header {
-  background: #5c1f8a;
+  background: #411066;
   padding: 14px 20px 12px;
   text-align: center;
   flex-shrink: 0;
@@ -74,8 +74,8 @@ body {
 
 .uni-grand {
   font-family: 'Georgia', serif;
-  font-size: 1.6rem;
-  font-weight: 80;
+  font-size: 1.2rem;
+  /*font-weight: 20;*/
   letter-spacing: 1.5px;
   text-transform: uppercase;
   line-height: 1.1;
@@ -83,10 +83,10 @@ body {
 
 .uni-sub {
   font-family: 'Georgia', serif;
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   letter-spacing: 4px;
   text-transform: uppercase;
-  font-weight: 80;
+  /*font-weight: 20;*/
   margin-top: 2px;
   opacity: 0.92;
 }
@@ -110,7 +110,7 @@ body {
   padding: 9px 12px;
   font-family: 'Arial', sans-serif;
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 400;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -267,7 +267,7 @@ body {
   left: 0;
   width: 0%;
   height: 100%;
-  background: #2d9c5a;
+  background: #217d46;
   border-radius: 3px;
   animation: slideBar 4s ease-in-out infinite;
 }
@@ -281,7 +281,7 @@ body {
 
 /* ========== Card Footer ========== */
 .card-footer {
-  background: #5c1f8a;
+  background: #411066;
   padding: 12px 20px 14px;
   text-align: center;
   flex-shrink: 0;
@@ -298,8 +298,8 @@ body {
 .last-updated-time {
   font-family: 'Arial', sans-serif;
   color: #fff;
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 400;
   letter-spacing: 0.2px;
 }
 
