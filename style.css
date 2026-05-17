@@ -271,14 +271,14 @@ body {
   font-family: 'Georgia', serif;
   font-style: italic;
   color: rgba(255,255,255,0.7);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   margin-bottom: 3px;
 }
 
 .last-updated-time {
   font-family: 'Arial', sans-serif;
   color: #fff;
-  font-size: 0.8rem;
+  font-size: 0.96rem;
   font-weight: 400;
   letter-spacing: 0.2px;
 }
