@@ -37,7 +37,7 @@ function generateBarcode() {
 
   const bars = [];
   let totalUnits = 0;
-  const targetUnits = 110;
+  const targetUnits = 150;
 
   bars.push({ color: '#fff', units: 0 });
 
